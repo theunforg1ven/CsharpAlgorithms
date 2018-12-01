@@ -1,6 +1,7 @@
 ﻿using System;
 using Arrays.Sorting;
 using Arrays.LinkedList;
+using Arrays.FactorialFib;
 
 namespace Arrays
 {
@@ -13,6 +14,9 @@ namespace Arrays
             
             // Show how custom linked list works
             LinkedListExample();
+            
+            // Show how 'factorial' and 'fibonachi' algorithms work
+            FibonachiFactorialExample();
         }
 
         public static void SortingExamples()
@@ -58,6 +62,33 @@ namespace Arrays
             Console.WriteLine(Environment.NewLine);
             foreach (var item in linkedint)
                 Console.Write($"{item} ");
+        }
+
+        public static void FibonachiFactorialExample()
+        {
+            const int number = 7;
+
+            // factorial
+            Console.WriteLine($"{number}! = {GetFactorial.Factorial(number)}");
+            Console.WriteLine("|************************************************************************|");
+
+            // fibonachi 3
+            for (int i = 0; i <= number; i++)
+            {
+                Console.WriteLine($"{ Fibonachi.FibonachiThree(i)}");
+            }
+
+            Console.WriteLine($"Fibonachi of {number} = {Fibonachi.FibonachiThree(number)}");
+            Console.WriteLine("|************************************************************************|");
+
+            // fibonachi 2
+            for (int i = 0; i <= number; i++)
+            {
+                Console.WriteLine($"{ Fibonachi.FibonachiTwo(i)}");
+            }
+
+            Console.WriteLine($"Fibonachi of {number} = {Fibonachi.FibonachiTwo(number)}");
+            Console.WriteLine("|************************************************************************|");
         }
     }
 }
