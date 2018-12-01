@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Arrays.Sorting;
-using Arrays.LinkedList;
 using Arrays.FactorialFib;
+using Arrays.Search;
 
 namespace Arrays
 {
@@ -17,6 +19,9 @@ namespace Arrays
             
             // Show how 'factorial' and 'fibonachi' algorithms work
             FibonachiFactorialExample();
+
+            // Show how 'binary search' works
+            BinarySearchExample();
         }
 
         public static void SortingExamples()
@@ -39,7 +44,7 @@ namespace Arrays
 
         public static void LinkedListExample()
         {
-            var linkedint = new LinkedList<int> { 54, 32, 21, 40, 92 };
+            var linkedint = new LinkedList.LinkedList<int> { 54, 32, 21, 40, 92 };
             foreach (var item in linkedint)
                 Console.Write($"{item} ");
             Console.WriteLine(Environment.NewLine);
@@ -89,6 +94,26 @@ namespace Arrays
 
             Console.WriteLine($"Fibonachi of {number} = {Fibonachi.FibonachiTwo(number)}");
             Console.WriteLine("|************************************************************************|");
+        }
+
+        public static void BinarySearchExample()
+        {
+            var stopWatch = new Stopwatch();
+
+            var myArr = new List<long>();
+            for (long i = 0; i < 100000000; i++)
+                myArr.Add(i);
+
+            myArr.Sort();
+
+            // Binary search
+            stopWatch.Start();
+            long founded = BinarySearch.Binary(myArr, 99999980);
+            Console.WriteLine("Founded number: " + founded);
+            stopWatch.Stop();
+
+            var ts = stopWatch.ElapsedMilliseconds;
+            Console.WriteLine("RunTime: " + ts);
         }
     }
 }
