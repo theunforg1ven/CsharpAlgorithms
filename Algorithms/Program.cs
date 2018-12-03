@@ -23,18 +23,45 @@ namespace Arrays
 
             // Show how 'binary search' works
             BinarySearchExample();
+
+            // Show how 'Dijkstra' algorithm works
+            DijkstraExample();
+
+            // Show how 'Floyd–Warshall' algorithm works
+            FloydExample();
+        }
+
+        public static void FloydExample()
+        {
+            Console.WriteLine("\nFloyd Algorithm:");
             
-            int[,] graph =  {
-                { 0, 6, 0, 0, 0, 0, 0, 9, 0 },
-                { 6, 0, 9, 0, 0, 0, 0, 11, 0 },
-                { 0, 9, 0, 5, 0, 6, 0, 0, 2 },
-                { 0, 0, 5, 0, 9, 16, 0, 0, 0 },
-                { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-                { 0, 0, 6, 0, 10, 0, 2, 0, 0 },
-                { 0, 0, 0, 16, 0, 2, 0, 1, 6 },
-                { 9, 11, 0, 0, 0, 0, 1, 0, 5 },
-                { 0, 0, 2, 0, 0, 0, 6, 5, 0 }
+            // found this matrix in the internet
+            int[,] graph = {
+                { 0,   6,  9999, 11 },
+                { 9999, 0,   4, 9999 },
+                { 9999, 9999, 0,   2 },
+                { 9999, 9999, 9999, 0 }
             };
+            
+            Floyd.FloydAlgorithm(graph, 4);
+        }
+
+        public static void DijkstraExample()
+        {
+            Console.WriteLine("\nDijkstra Algorithm:");
+            
+            // found this matrix in the internet
+            var graph = new [,]{
+                {0, 4, 0, 0, 0, 0, 0, 8, 0}, 
+                {4, 0, 8, 0, 0, 0, 0, 11, 0}, 
+                {0, 8, 0, 7, 0, 4, 0, 0, 2}, 
+                {0, 0, 7, 0, 9, 14, 0, 0, 0}, 
+                {0, 0, 0, 9, 0, 10, 0, 0, 0}, 
+                {0, 0, 4, 14, 10, 0, 2, 0, 0}, 
+                {0, 0, 0, 0, 0, 2, 0, 1, 6}, 
+                {8, 11, 0, 0, 0, 0, 1, 0, 7}, 
+                {0, 0, 2, 0, 0, 0, 6, 7, 0}
+            }; 
  
             Dijkstra.DijkstraAlgorithm(graph, 0, 9);
         }
