@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Arrays.Sorting;
 using Arrays.FactorialFib;
-using Arrays.Search;
 using Arrays.Graphs;
+using Arrays.Search;
+using Arrays.Sorting;
+
 
 namespace Arrays
 {
@@ -13,22 +14,27 @@ namespace Arrays
         public static void Main(string[] args)
         {
             // Show how sorting algorithms work
-            SortingExamples();
-            
+            //SortingExamples();
+
             // Show how custom linked list works
-            LinkedListExample();
-            
+            // LinkedListExample();
+
             // Show how 'factorial' and 'fibonachi' algorithms work
-            FibonachiFactorialExample();
+            //FibonachiFactorialExample();
 
             // Show how 'binary search' works
-            BinarySearchExample();
+            //BinarySearchExample();
 
             // Show how 'Dijkstra' algorithm works
-            DijkstraExample();
+            // DijkstraExample();
 
             // Show how 'Floyd–Warshall' algorithm works
-            FloydExample();
+            // FloydExample();
+
+            // Graps Bfs
+            GraphBfsExample();
+
+            Console.ReadKey();
         }
 
         public static void FloydExample()
@@ -44,6 +50,36 @@ namespace Arrays
             };
             
             Floyd.FloydAlgorithm(graph, 4);
+        }
+
+        public static void GraphBfsExample()
+        {
+            Console.WriteLine("\nGraph Bfs Algorithm:");
+
+            var g = new Graph();
+
+            //добавление вершин
+            g.AddVertex("A");
+            g.AddVertex("B");
+            g.AddVertex("C");
+            g.AddVertex("D");
+            g.AddVertex("E");
+            g.AddVertex("F");
+            g.AddVertex("G");
+            g.AddVertex("H");
+
+            //добавление ребер
+            g.AddEdge("A", "B", 22);
+            g.AddEdge("A", "C", 33);
+            g.AddEdge("B", "D", 61);
+            g.AddEdge("B", "E", 47);
+            g.AddEdge("C", "F", 93);
+            g.AddEdge("C", "G", 11);
+            g.AddEdge("E", "H", 79);
+
+
+            var bfs = new GraphBfs();
+            var path = bfs.FindVertexBfs(g, "C");
         }
 
         public static void DijkstraExample()
@@ -73,14 +109,14 @@ namespace Arrays
             int[] integerValues3 = { -10, 5, 18, 0, -30, -10, 92, 16, -9 }; 
             int[] integerValues4 = { 25, -31, 10, 0, -40, 19, 5, -3, -20 }; 
             
-            SelectionSort.Sort(integerValues1); 
-            InsertionSort.Sort(integerValues2);
-            BubbleSort.Sort(integerValues3);
+            //SelectionSort.Sort(integerValues1); 
+            //InsertionSort.Sort(integerValues2);
+            //BubbleSort.Sort(integerValues3);
             QuickSort.Sort(integerValues4);
             
-            Console.WriteLine(String.Join(" | ", integerValues1)); 
-            Console.WriteLine(String.Join(" | ", integerValues2)); 
-            Console.WriteLine(String.Join(" | ", integerValues3)); 
+            //Console.WriteLine(String.Join(" | ", integerValues1)); 
+            //Console.WriteLine(String.Join(" | ", integerValues2)); 
+            //Console.WriteLine(String.Join(" | ", integerValues3)); 
             Console.WriteLine(String.Join(" | ", integerValues4));
         }
 
@@ -143,14 +179,14 @@ namespace Arrays
             var stopWatch = new Stopwatch();
 
             var myArr = new List<long>();
-            for (long i = 0; i < 100000000; i++)
+            for (long i = 0; i < 20; i++)
                 myArr.Add(i);
 
             myArr.Sort();
 
             // Binary search
             stopWatch.Start();
-            long founded = BinarySearch.Binary(myArr, 99999980);
+            long founded = BinarySearch.Binary(myArr, 12);
             Console.WriteLine("Founded number: " + founded);
             stopWatch.Stop();
 

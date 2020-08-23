@@ -42,13 +42,13 @@ namespace Arrays.Sorting
                     upper--; 
             
                 if (lower >= upper)  
-                    break; 
+                   break; 
                 
                 Swap(array, lower, upper); 
             } 
             
             // condition - while lower elem is 'lower' than upper
-            while (lower <= upper); 
+            while (lower < upper); 
                 
             // return partition element
             return upper; 
