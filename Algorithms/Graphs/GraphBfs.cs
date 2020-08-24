@@ -8,16 +8,14 @@ namespace Arrays.Graphs
 {
 	public class GraphBfs
 	{
-		public List<GraphVertex> VisitedVertices { get; set; }
-
-		public Queue<GraphVertex> GraphVertices { get; set; }
-
-		public Graph Graph { get; set; }
+		private List<GraphVertex> _visitedVertices;
+		private Queue<GraphVertex> _graphVertices;
+		private Graph _graph;
 
 		public GraphBfs()
 		{
-			VisitedVertices = new List<GraphVertex>();
-			GraphVertices = new Queue<GraphVertex>();
+			_visitedVertices = new List<GraphVertex>();
+			_graphVertices = new Queue<GraphVertex>();
 		}
 
 		public bool FindVertexBfs(Graph graph, string vertexName)
@@ -27,22 +25,22 @@ namespace Arrays.Graphs
 			while (graphQueue != null)
 			{
 				var vertice = graphQueue.Dequeue();
-				if (!VisitedVertices.Contains(vertice))
+				if (!_visitedVertices.Contains(vertice))
 				{
 					if (vertice.Name == vertexName)
 					{
-						Console.WriteLine($"Vertice {vertexName} was found! Yeeeeee");
+						Console.WriteLine($"Vertice {vertexName} was found in bfs! Yeeeeee\n");
 						return true;
 					}
 					else
 					{
-						var childVertices = vertice.Edges.Select(e => e.ConnectedVertex).Where(v => !VisitedVertices.Contains(v));
+						var childVertices = vertice.Edges.Select(e => e.ConnectedVertex).Where(v => !_visitedVertices.Contains(v));
 						foreach (var verticeChild in childVertices)
 						{
 							Console.WriteLine($"Vertice child {verticeChild.Name} of {vertice.Name}");
 							graphQueue.Enqueue(verticeChild);
 						}
-						VisitedVertices.Add(vertice);
+						_visitedVertices.Add(vertice);
 					}
 				}	
 			}
@@ -52,13 +50,13 @@ namespace Arrays.Graphs
 
 		private Queue<GraphVertex> AddGraph(Graph graph)
 		{
-			Graph = graph;
-			foreach (var vertex in Graph.Vertices)
+			_graph = graph;
+			foreach (var vertex in _graph.Vertices)
 			{
-				GraphVertices.Enqueue(vertex);
+				_graphVertices.Enqueue(vertex);
 			}
 
-			return GraphVertices;
+			return _graphVertices;
 		}
 	}
 }

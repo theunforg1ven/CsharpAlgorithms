@@ -80,6 +80,9 @@ namespace Arrays
 
             var bfs = new GraphBfs();
             var path = bfs.FindVertexBfs(g, "C");
+
+            var search = new GraphDfs();
+            var pathDfs = search.DFS(g.Vertices[0], g.Vertices[7]);
         }
 
         public static void DijkstraExample()
