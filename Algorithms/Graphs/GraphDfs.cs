@@ -29,17 +29,18 @@ namespace Arrays.Graphs
         private bool DFS(GraphVertex node)
         {
             if (node == _goal)
+			{
+                Console.WriteLine($"Vertice {node.Name} was found in dfs! Yeeeeee");
                 return true;
-
+            }
+                
             _visited.Add(node);
 
             foreach (var child in node.Edges.Select(e => e.ConnectedVertex).Where(e => !_visited.Contains(e)))
             {
                 Console.WriteLine($"Vertice child {child.Name} of {node.Name}");
                 if (DFS(child))
-                {
-                    if (child == _goal)
-                        Console.WriteLine($"Vertice {child.Name} was found in dfs! Yeeeeee");
+                {                   
                     _path.AddFirst(child);
                     return true;
                 }

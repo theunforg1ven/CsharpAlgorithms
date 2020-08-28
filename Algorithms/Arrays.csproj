@@ -38,6 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dynamic\Backpack.cs" />
+    <Compile Include="Dynamic\Item.cs" />
     <Compile Include="FactorialFib\Fibonachi.cs" />
     <Compile Include="FactorialFib\GetFactorial.cs" />
     <Compile Include="Graphs\Dijkstra.cs" />
