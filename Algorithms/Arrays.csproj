@@ -57,6 +57,7 @@
     <Compile Include="Sorting\InsertionSort.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
+    <Compile Include="Strings\Permute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

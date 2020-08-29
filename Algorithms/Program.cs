@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using Arrays.Dynamic;
 using Arrays.FactorialFib;
 using Arrays.Graphs;
 using Arrays.Search;
 using Arrays.Sorting;
-
+using Arrays.Strings;
 
 namespace Arrays
 {
@@ -32,9 +34,47 @@ namespace Arrays
             // FloydExample();
 
             // Graps Bfs
-            GraphBfsExample();
+            //GraphBfsExample();
+
+            //BackpackExample();
+
+            PermuteExample();
 
             Console.ReadKey();
+        }
+
+        public static void PermuteExample()
+        {
+            Console.WriteLine("\nPermute Algorithm:");
+
+            var str = "abc";
+            char[] arr = str.ToCharArray();
+            Permute.GetPer(arr);
+        }
+
+        public static void BackpackExample()
+        {
+            Console.WriteLine("\nBackpack Algorithm:");
+
+            var items = new List<Item>
+            {
+                new Item("Player", 4, 3000),
+                new Item("Laptop", 3, 2000),
+                new Item("Guitar", 1, 1500),
+            };
+
+            var bp = new Backpack();
+            var weight = 4;
+
+            var finalList = bp.GetBestBackpackItems(weight, items, out int result);
+
+            Console.WriteLine($"Maximum weight is {weight}");
+
+            foreach (var item in finalList)
+                Console.WriteLine($"Added item {item.Name} with weight: {item.Weigth} and with price: {item.Price}");
+
+            Console.WriteLine($"Final items weight is {finalList.Select(i => i.Weigth).Sum()}");
+            Console.WriteLine($"Final items price is {result}");
         }
 
         public static void FloydExample()

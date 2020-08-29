@@ -4,11 +4,11 @@
 	{
         public string Name { get; set; }
 
-        public double Weigth { get; set; }
+        public int Weigth { get; set; }
 
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
-        public Item(string name, double weigth, decimal price)
+        public Item(string name, int weigth, int price)
         {
             Name = name;
             Weigth = weigth;
