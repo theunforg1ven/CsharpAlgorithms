@@ -33,25 +33,25 @@ namespace Arrays.Dynamic
             var best = 0;
             for (int i = 0; i < currentItems.Count; i++)
             {
-                // this is an array of the other items.
+                // this is an array of the other items
                 var otherItems = currentItems.Take(i).Concat(currentItems.Skip(i + 1)).ToList();
 
-                // calculate the best value without using the current item.
+                // calculate the best value without using the current item
                 var without = ItemsSearch(capacity, otherItems);
                 var with = 0;
 
                 // if the current item fits then calculate the best value for
                 // a capacity less it's weight and with it removed from contention
-                // and add the current items value to that.
+                // and add the current items value to that
                 if (currentItems[i].Weigth <= capacity)
                 {
                     with = ItemsSearch(capacity - currentItems[i].Weigth, otherItems) + currentItems[i].Price;
                 }
 
-                // the current best is the max of the with or without.
+                // the current best is the max of the with or without
                 int currentBest = Math.Max(without, with);
 
-                // determine if the current best is the overall best.
+                // determine if the current best is the overall best
                 if (currentBest > best)
 				{
                     best = currentBest;

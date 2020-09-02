@@ -36,9 +36,11 @@ namespace Arrays
             // Graps Bfs
             //GraphBfsExample();
 
+            // Dynamic programming backpack
             //BackpackExample();
 
-            PermuteExample();
+            // Permute of string chars
+            //PermuteExample();
 
             Console.ReadKey();
         }

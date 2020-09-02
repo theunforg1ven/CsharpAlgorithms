@@ -43,12 +43,14 @@
     <Compile Include="FactorialFib\Fibonachi.cs" />
     <Compile Include="FactorialFib\GetFactorial.cs" />
     <Compile Include="Graphs\Dijkstra.cs" />
+    <Compile Include="Graphs\DijkstraWithVertices.cs" />
     <Compile Include="Graphs\Floyd.cs" />
     <Compile Include="Graphs\Graph.cs" />
     <Compile Include="Graphs\GraphBfs.cs" />
     <Compile Include="Graphs\GraphDfs.cs" />
     <Compile Include="Graphs\GraphEdge.cs" />
     <Compile Include="Graphs\GraphVertex.cs" />
+    <Compile Include="Graphs\GraphVertexInfo.cs" />
     <Compile Include="LinkedList\LinkedList.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="Program.cs" />
