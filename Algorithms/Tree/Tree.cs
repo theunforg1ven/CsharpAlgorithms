@@ -21,16 +21,5 @@ namespace Arrays.Tree
 
             return root;
         }
-
-        public void Traverse(TreeNode root)
-        {
-            if (root == null)
-            {
-                return;
-            }
-
-            Traverse(root.Left);
-            Traverse(root.Right);
-        }
     }
 }

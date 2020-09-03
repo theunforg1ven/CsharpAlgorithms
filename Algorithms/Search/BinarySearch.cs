@@ -20,10 +20,10 @@ namespace Arrays.Search
             {
                 var middle = first + (last - first) / 2;
 
-                if (value.CompareTo(array[middle]) <= 0) // if 'value' <= 'middle'
+                if (value.CompareTo(array[middle]) <= 0) // if 'value' <= 'array[middle]'
                     last = middle;
 
-                else                                     // if 'value' > 'middle'
+                else                                     // if 'value' > 'array[middle]'
                     first = middle + 1;
 
                 tries++;

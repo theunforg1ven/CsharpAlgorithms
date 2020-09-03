@@ -42,7 +42,31 @@ namespace Arrays
             // Permute of string chars
             //PermuteExample();
 
+            RecursionExample();
+
             Console.ReadKey();
+        }
+
+        public static void RecursionExample()
+        {
+            Console.WriteLine("\nRecursion Algorithm:");
+
+            var n = 10;
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{RecursiveTasks.T1Progression(i)} ");
+            }
+
+            var sum = RecursiveTasks.T2ProgressionSum(5, 2);
+            Console.Write($"\nSum = {sum} ");
+
+            var str = "abcdefg";
+            var arr = str.ToCharArray();
+            Console.WriteLine();
+            RecursiveTasks.T3ReverseStr(arr);
+            
+            var a = new[] { 0, 5, 6, 1, 9, 7, 8, 3, 2, 4 };
+            Console.WriteLine("Index: " + RecursiveTasks.T4IndexOfMax(a, a.Length - 1));
         }
 
         public static void PermuteExample()
