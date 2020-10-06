@@ -67,6 +67,20 @@ namespace Arrays
             
             var a = new[] { 0, 5, 6, 1, 9, 7, 8, 3, 2, 4 };
             Console.WriteLine("Index: " + RecursiveTasks.T4IndexOfMax(a, a.Length - 1));
+
+            var number = 145;
+            Console.WriteLine($"Sum of contained digits of the number {number} = {RecursiveTasks.T22SumOfContainedDigits(number)}");
+            Console.WriteLine($"Sum of digits of the number {number} = {RecursiveTasks.T22SumOfDigits(number)}");
+            Console.Write($"Convert decimal to binary {number} = ");
+            RecursiveTasks.DecimalToBinary(number);
+            
+            var numberExp = 10;
+            var exp = 3;
+            Console.WriteLine($"Power of number {numberExp} = {RecursiveTasks.PowerOfNumber(numberExp, exp)}");
+            
+            var a1 = 10;
+            var b1 = 135;
+            Console.WriteLine($"Greatest common divisor of numbers a1: {a1} and b1: {b1} = {RecursiveTasks.FindGCD(a1, b1)}");
         }
 
         public static void PermuteExample()

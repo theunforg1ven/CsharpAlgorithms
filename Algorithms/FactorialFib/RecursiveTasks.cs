@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Arrays.FactorialFib
 {
@@ -76,6 +78,60 @@ namespace Arrays.FactorialFib
             var temp = a;
             a = b;
             b = temp;
+        }
+        
+        // Sum of contained digits of the number
+        public static int T22SumOfContainedDigits(int num)
+        {
+            if (num == 0)
+                return num;
+            
+            return T22SumOfContainedDigits(num - 1) + num;
+        }
+        
+        // Sum of  digits of the number
+        public static int T22SumOfDigits(int num)
+        {
+            if (num == 0)
+                return num;
+            
+            return T22SumOfDigits(num / 10) + num % 10;
+        }
+        
+        // Convert decimal number to binary
+        public static void DecimalToBinary(int num)
+        {
+            if (num != 0)
+            {
+                DecimalToBinary(num / 2);    
+                var bin = (num % 2);
+                Console.Write(bin);
+            }
+        }
+        
+        // Power of number
+        public static int PowerOfNumber(int num, int exp)
+        {
+            if (exp == 0)
+                return 1;
+            else if (exp == 1)
+                return num;
+            else
+                return PowerOfNumber(num, exp - 1) * num;
+        }
+        
+        // Find greatest common divisor
+        public static int FindGCD(int num1, int num2)
+        {
+            if (num1 == 0)
+                return num2;
+            if (num2 == 0)
+                return num1;
+            
+            if(num1 > num2) 
+                return FindGCD(num1 % num2, num2);
+            else 
+                return FindGCD(num1, num2 % num1);
         }
     }
 }

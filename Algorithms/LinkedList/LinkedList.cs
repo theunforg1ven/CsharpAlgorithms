@@ -6,7 +6,7 @@ namespace Arrays.LinkedList
 {
     public class LinkedList<T> : IEnumerable<T> where T : IComparable
 	{
-		private Node<T> head; // main/first element
+		private Node<T> head; // first/head element
 		private Node<T> tail; // last/tail element
 		private int _count;  // amount of elements in the list
 
@@ -88,7 +88,11 @@ namespace Arrays.LinkedList
 
 		public int Count => _count; 
 
-		public bool IsEmpty => _count == 0; 
+		public bool IsEmpty => _count == 0;
+
+		public Node<T> First => head;
+		
+		public Node<T> Last => tail;
 
 		public void Clear()
 		{

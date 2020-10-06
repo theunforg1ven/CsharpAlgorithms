@@ -34,7 +34,10 @@ namespace Arrays.Graphs
 					}
 					else
 					{
-						var childVertices = vertice.Edges.Select(e => e.ConnectedVertex).Where(v => !_visitedVertices.Contains(v));
+						var childVertices = vertice.Edges
+																			.Select(e => e.ConnectedVertex)
+																			.Where(v => !_visitedVertices
+																				.Contains(v));
 						foreach (var verticeChild in childVertices)
 						{
 							Console.WriteLine($"Vertice child {verticeChild.Name} of {vertice.Name}");
