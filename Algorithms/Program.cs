@@ -42,9 +42,41 @@ namespace Arrays
             // Permute of string chars
             //PermuteExample();
 
-            RecursionExample();
+            // Different recursive tasks
+            //RecursionExample();
+            
+            // Different string tasks
+            StringsExample();
 
             Console.ReadKey();
+        }
+        
+        public static void StringsExample()
+        {
+            Console.WriteLine("\nString Algorithm:");
+
+            var value1 = StrTasks.RemoveDuplicateChars("Csharpcsharp");
+            var value2 = StrTasks.RemoveDuplicateChars("Google");
+            var value3 = StrTasks.RemoveDuplicateChars("Yahoo");
+            var value4 = StrTasks.RemoveDuplicateChars("CNN");
+            var value5 = StrTasks.RemoveDuplicateChars("Line1\nLine2\nLine3");
+ 
+            Console.WriteLine(value1);
+            Console.WriteLine(value2);
+            Console.WriteLine(value3);
+            Console.WriteLine(value4);
+            Console.WriteLine(value5);
+
+            var str = "Csha rpcs harp";
+            Console.WriteLine($"Count words in string: {str} = {StrTasks.CountWords(str)}");
+
+            var palindrome = "kayak";
+            var palArr = palindrome.ToCharArray();
+            Console.Write($"Check if string is palindrome: {palindrome}");
+            StrTasks.IsPalindrome(palArr);
+
+            var isUnique = "abbcd";
+            Console.Write($"String {isUnique} has only unique cahracters: {StrTasks.IsAllUnique(isUnique)}");
         }
 
         public static void RecursionExample()
