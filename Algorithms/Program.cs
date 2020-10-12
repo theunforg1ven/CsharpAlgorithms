@@ -76,7 +76,17 @@ namespace Arrays
             StrTasks.IsPalindrome(palArr);
 
             var isUnique = "abbcd";
-            Console.Write($"String {isUnique} has only unique cahracters: {StrTasks.IsAllUnique(isUnique)}");
+            Console.Write($"String {isUnique} has only unique cahracters: {StrTasks.IsAllUnique(isUnique)}\n");
+
+            var test1Str = "Silent";
+            var test2Str = "Listen";
+            var test3Str = "something else";
+            StrTasks.IsAnagram(test1Str, test2Str);
+            StrTasks.IsAnagram(test2Str, test3Str);
+            StrTasks.IsAnagram(test1Str, test3Str);
+            
+            var isUniqueFirst = "abcbcadfytygfra";
+            Console.Write($"First unique char from {isUniqueFirst} : {StrTasks.FindFirstUniqueSymbol(isUniqueFirst)}\n");
         }
 
         public static void RecursionExample()

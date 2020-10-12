@@ -27,6 +27,21 @@ namespace Arrays.Strings
         }
         
         // 2. Check if two Strings are anagrams of each other
+        public static void IsAnagram(string str1, string str2)
+        {
+            var arr1 = str1.ToLower().ToCharArray();
+            var arr2 = str2.ToLower().ToCharArray();
+            
+            Array.Sort(arr1);
+            Array.Sort(arr2);
+
+            var newStr1 = new string(arr1);
+            var newStr2 = new string(arr2);
+
+            Console.WriteLine(newStr1 == newStr2
+                                        ? $"Current strings {str1} and {str2} are anagrams"
+                                        : $"Strings {str1} and {str2} are not anagrams");
+        }
         
         // 3. Count number of words in a String
         public static int CountWords(string currString)
@@ -64,6 +79,18 @@ namespace Arrays.Strings
         public static bool IsAllUnique(string currString)
         {
             return currString.ToCharArray().Distinct().Count() == currString.Length;
+        }
+        
+        // 6. Find first unique symbol in string
+        public static char FindFirstUniqueSymbol(string currString)
+        {
+            var result = currString.GroupBy(c => c)
+                                                    .ToDictionary(c => c.Key, v => 0);
+            
+            foreach (var c in currString)
+                result[c] += 1;
+
+            return result.FirstOrDefault(c => c.Value == 1).Key;
         }
     }
 }
