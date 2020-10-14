@@ -46,7 +46,10 @@ namespace Arrays
             //RecursionExample();
             
             // Different string tasks
-            StringsExample();
+            //StringsExample();
+            
+            // Recursive Hanoi Tower
+            
 
             Console.ReadKey();
         }
@@ -87,6 +90,37 @@ namespace Arrays
             
             var isUniqueFirst = "abcbcadfytygfra";
             Console.Write($"First unique char from {isUniqueFirst} : {StrTasks.FindFirstUniqueSymbol(isUniqueFirst)}\n");
+            
+            var a = "abc";
+            var b = "abccba";
+            var c = "abcdcba";
+            var d = "aabcbbcaccc";
+            Console.Write($"Number of strings from a='{a}' and b='{b}': {StrTasks.StringConstructions(a, b)}\n");
+            Console.Write($"Number of strings from a='{a}' and b='{c}': {StrTasks.StringConstructions(a, c)}\n");
+            Console.Write($"Number of strings from a='{a}' and b='{d}': {StrTasks.StringConstructions(a, d)}\n");
+            
+            var integer1 = 1234;
+            var width1 = 2;
+            var width2 = 4;
+            var width3 = 5;
+            var width4 = 10;
+            Console.Write($"New string from integer {integer1} with width {width1}: {StrTasks.StringFromIntWithWidth(integer1, width1)}\n");
+            Console.Write($"New string from integer {integer1} with width {width2}: {StrTasks.StringFromIntWithWidth(integer1, width2)}\n");
+            Console.Write($"New string from integer {integer1} with width {width3}: {StrTasks.StringFromIntWithWidth(integer1, width3)}\n");
+            Console.Write($"New string from integer {integer1} with width {width4}: {StrTasks.StringFromIntWithWidth(integer1, width4)}\n");
+            
+            var one1 = "ceoydefthf5iyg5h5yts";
+            var ano1= "codefights";
+            var one2 = "addbyca";
+            var ano2 = "abcd";
+            Console.Write($"Can get a string?: {StrTasks.OneStringFromAnother(one1, ano1)}\n");
+            Console.Write($"Can get a string?: {StrTasks.OneStringFromAnother(one2, ano2)}\n");
+            
+            var arr = new List<string> {"aba", "aa", "ad", "dfg", "ava"};
+            var resTen = StrTasks.LongestStrings(arr);
+            Console.Write("Longest strings: ");
+            resTen.ForEach(el => Console.Write($"{el} "));
+            Console.WriteLine();
         }
 
         public static void RecursionExample()

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 
 namespace Arrays.Strings
@@ -88,9 +89,65 @@ namespace Arrays.Strings
                                                     .ToDictionary(c => c.Key, v => 0);
             
             foreach (var c in currString)
-                result[c] += 1;
+                result[c]++;
 
             return result.FirstOrDefault(c => c.Value == 1).Key;
+        }
+        
+        // 7. How many strings "a" can be constructed from chars in string "b" [ a = 'abc', b = 'abccba', result = 2]
+        public static int StringConstructions(string a, string b)
+        {
+            var bDict =  b.GroupBy(c => c)
+                            .ToDictionary(c => c.Key, v => 0);
+
+            foreach (var key in b)
+                bDict[key]++;
+
+            return b.Any(c => !a.Contains(c)) 
+                                ? 0 : bDict.Values.Min();
+        }
+        
+        // 8. Integer to a string with fixed width [ 1234, width = 2, result = "34"; 1234, width = 5, result = "01234"; ]
+        public static string StringFromIntWithWidth(int num, int width)
+        {
+            var sub = width - num.ToString().Length;
+            var zero = string.Empty;
+            
+            if(sub > 0)
+                zero = new string('0', sub);
+
+            var result = zero + num;
+            return result;
+        }
+        
+        // 9. Get one string from another
+        public static bool OneStringFromAnother(string a, string b)
+        {
+            var resStr = new StringBuilder();
+            var newResIndex = 0;
+            
+            for (var i = 0; i < a.Length; i++)
+            {
+                if (a[i] == b[newResIndex])
+                {
+                    resStr.Append(a[i]);
+                    newResIndex++;
+                }
+            }
+
+            return resStr.ToString() == b;
+        }
+        
+        // 10. Return array of longest strings
+        public static List<string> LongestStrings(List<string> arr)
+        {
+            if (arr == null || !arr.Any())
+                return new List<string>();
+            
+            var longestStrLength = arr.OrderByDescending(el => el.Length).FirstOrDefault().Length;
+            var newList = arr.Where(str => str.Length == longestStrLength).ToList();
+
+            return newList;
         }
     }
 }
