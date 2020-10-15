@@ -49,11 +49,12 @@ namespace Arrays
             //StringsExample();
             
             // Recursive Hanoi Tower
+            var towerWorks = new VisualHanoiTower();
             
 
             Console.ReadKey();
         }
-        
+
         public static void StringsExample()
         {
             Console.WriteLine("\nString Algorithm:");

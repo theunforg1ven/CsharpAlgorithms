@@ -42,7 +42,9 @@
     <Compile Include="Dynamic\Item.cs" />
     <Compile Include="FactorialFib\Fibonachi.cs" />
     <Compile Include="FactorialFib\GetFactorial.cs" />
+    <Compile Include="FactorialFib\HanoiTower.cs" />
     <Compile Include="FactorialFib\RecursiveTasks.cs" />
+    <Compile Include="FactorialFib\VisualHanoiTower.cs" />
     <Compile Include="Graphs\Dijkstra.cs" />
     <Compile Include="Graphs\DijkstraWithVertices.cs" />
     <Compile Include="Graphs\Floyd.cs" />
