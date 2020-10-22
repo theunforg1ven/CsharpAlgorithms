@@ -32,19 +32,9 @@ namespace Arrays.FactorialFib
         {
             if (len == 0)
                 return len;
-            else
-			{
-                var index = T4IndexOfMax(arr, len - 1);
-				if (arr[len] > arr[index])
-				{
-                    return len;
-				}
-                else
-				{
-                    return index;
-				}
-
-            } 
+            
+            var index = T4IndexOfMax(arr, len - 1);
+            return arr[len] > arr[index] ? len : index;
         }
 
         // Напишите программу для переворота строки с использованием рекурсии. 

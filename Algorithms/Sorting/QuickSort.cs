@@ -31,8 +31,11 @@ namespace Arrays.Sorting
             // get pivot element as lower 
             var pivot = array[lower]; // or: T pivot = array[(lower + upper) / 2];
             
-            // loop to place lower than pivot element before 'pivot'
-            // and greater elements after 'pivot'
+            // loop to place lower than pivot element before 'pivot' and greater elements after 'pivot'.
+            // Do these steps:
+            // 1) find 'array[lower] > pivot'
+            // 2) 'array[upper] < pivot'
+            // 3) Swap them, do it while 'lower < upper'
             do 
             { 
                 while (array[lower].CompareTo(pivot) < 0) 
