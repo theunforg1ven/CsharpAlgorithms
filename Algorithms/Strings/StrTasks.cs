@@ -173,11 +173,9 @@ namespace Arrays.Strings
                 {
                     if (i >= 1)
                         sb.Append(str[i - 1]);
-                    
 
                     if (i == str.Length - 1)
                         sb.Append(str[i]);
-                    
 
                     if (counter > 1)
                         sb.Append(counter);
