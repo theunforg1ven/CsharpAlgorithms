@@ -149,5 +149,45 @@ namespace Arrays.Strings
 
             return newList;
         }
+        
+        // 11. Get string and return new string with chars changed to number of chars
+        public static string StringRle(string str)
+        {
+            var sb = new StringBuilder();
+            var counter = 1;
+
+            for (var i = 1; i < str.Length; i++)
+            {
+                if (str[i] == str[i - 1])
+                {
+                    counter++;
+
+                    if (i == str.Length - 1)
+                    {
+                        sb.Append(str[i]);
+                        if (counter > 1)
+                            sb.Append(counter);
+                    }
+                }
+                else
+                {
+                    if (i >= 1)
+                        sb.Append(str[i - 1]);
+                    
+
+                    if (i == str.Length - 1)
+                        sb.Append(str[i]);
+                    
+
+                    if (counter > 1)
+                        sb.Append(counter);
+                    
+                    counter = 1;
+                }
+                    
+            }
+
+            return sb.ToString();
+        }
     }
 }

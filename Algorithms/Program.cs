@@ -46,10 +46,10 @@ namespace Arrays
             //RecursionExample();
             
             // Different string tasks
-            //StringsExample();
+            StringsExample();
             
             // Recursive Hanoi Tower
-            var towerWorks = new VisualHanoiTower();
+            //var towerWorks = new VisualHanoiTower();
             
 
             Console.ReadKey();
@@ -122,6 +122,9 @@ namespace Arrays
             Console.Write("Longest strings: ");
             resTen.ForEach(el => Console.Write($"{el} "));
             Console.WriteLine();
+
+            var rleStr = "AVVVBBBVVXDHJFFFFDDDDDDHAAAAJJJDDSLSSSDDDD";
+            Console.Write($"Result rle of str:{rleStr} = {StrTasks.StringRle(rleStr)}\n");
         }
 
         public static void RecursionExample()
