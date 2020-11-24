@@ -12,14 +12,12 @@ namespace Arrays.Strings
         // 1. Remove duplicate chars from string
         public static string RemoveDuplicateChars(string currString)
         {
-            var temp = new StringBuilder();
             var result = new StringBuilder();
             
             foreach (var elem in currString)
             {
-                if (!temp.ToString().Contains(elem))
+                if (!result.ToString().Contains(elem))
                 {
-                    temp.Append(elem);
                     result.Append(elem);
                 }
             }

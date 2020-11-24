@@ -55,6 +55,7 @@
     <Compile Include="Graphs\GraphVertex.cs" />
     <Compile Include="Graphs\GraphVertexInfo.cs" />
     <Compile Include="LinkedList\LinkedList.cs" />
+    <Compile Include="LinkedList\MineStack.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Search\BinarySearch.cs" />

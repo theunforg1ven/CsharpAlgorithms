@@ -12,7 +12,7 @@ namespace Arrays.LinkedList
 
 		public void Add(T data)
 		{
-			Node<T> node = new Node<T>(data);
+			var node = new Node<T>(data);
 
 			if (head == null)
 				head = node;
