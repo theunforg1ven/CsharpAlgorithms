@@ -50,6 +50,12 @@ namespace Arrays
             
             // Recursive Hanoi Tower
             //var towerWorks = new VisualHanoiTower();
+
+            // deconstructring
+            //(string name, int number) = ("Tom", 32);
+            // Console.WriteLine($"{name} {number}");
+            
+            
             
 
             Console.ReadKey();
@@ -123,7 +129,7 @@ namespace Arrays
             resTen.ForEach(el => Console.Write($"{el} "));
             Console.WriteLine();
 
-            var rleStr = "AVVVBBBVVXDHJFFFFDDDDDDHAAAAJJJDDSLSSSDDDD";
+            var rleStr = "AVVVBBBVVXDHJFFFFDDDDDDHAAAAJJJDDSLSSSDDDDK";
             Console.Write($"Result rle of str:{rleStr} = {StrTasks.StringRle(rleStr)}\n");
         }
 

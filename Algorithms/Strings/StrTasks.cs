@@ -101,8 +101,7 @@ namespace Arrays.Strings
             foreach (var key in b)
                 bDict[key]++;
 
-            return b.Any(c => !a.Contains(c)) 
-                                ? 0 : bDict.Values.Min();
+            return b.Any(c => !a.Contains(c)) ? 0 : bDict.Values.Min();
         }
         
         // 8. Integer to a string with fixed width [ 1234, width = 2, result = "34"; 1234, width = 5, result = "01234"; ]
@@ -163,22 +162,21 @@ namespace Arrays.Strings
                     if (i == str.Length - 1)
                     {
                         sb.Append(str[i]);
-                        if (counter > 1)
-                            sb.Append(counter);
+                        sb.Append(counter);
                     }
                 }
                 else
                 {
-                    if (i >= 1)
-                        sb.Append(str[i - 1]);
-
-                    if (i == str.Length - 1)
-                        sb.Append(str[i]);
-
-                    if (counter > 1)
-                        sb.Append(counter);
+                    sb.Append(str[i - 1]);
+                    sb.Append(counter);
                     
                     counter = 1;
+
+                    if (i == str.Length - 1)
+                    {
+                        sb.Append(str[i]);
+                        sb.Append(counter);
+                    }
                 }
                     
             }
