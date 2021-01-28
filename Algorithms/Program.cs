@@ -5,6 +5,7 @@ using System.Linq;
 using Arrays.Dynamic;
 using Arrays.FactorialFib;
 using Arrays.Graphs;
+using Arrays.ProgHubTests;
 using Arrays.Search;
 using Arrays.Sorting;
 using Arrays.Strings;
@@ -46,7 +47,10 @@ namespace Arrays
             //RecursionExample();
             
             // Different string tasks
-            StringsExample();
+            //StringsExample();
+            
+            // Turing task
+            TuringExample();
             
             // Recursive Hanoi Tower
             //var towerWorks = new VisualHanoiTower();
@@ -54,11 +58,18 @@ namespace Arrays
             // deconstructring
             //(string name, int number) = ("Tom", 32);
             // Console.WriteLine($"{name} {number}");
-            
-            
-            
 
             Console.ReadKey();
+        }
+        
+        public static void TuringExample()
+        {
+            Console.WriteLine("\nTuring Algorithm:");
+
+            var str = "Turing";
+            var turing = new TuringTask();
+            var number=  turing.Turing(str);
+            Console.WriteLine($"Index of 'Turing' word = {number}");
         }
 
         public static void StringsExample()

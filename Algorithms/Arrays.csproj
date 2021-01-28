@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\ArrTasks.cs" />
     <Compile Include="Dynamic\Backpack.cs" />
     <Compile Include="Dynamic\Item.cs" />
     <Compile Include="FactorialFib\Fibonachi.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="LinkedList\LinkedList.cs" />
     <Compile Include="LinkedList\MineStack.cs" />
     <Compile Include="LinkedList\Node.cs" />
+    <Compile Include="ProgHubTests\TuringTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Sorting\BubbleSort.cs" />
