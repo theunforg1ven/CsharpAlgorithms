@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Arrays.Arrays;
 using Arrays.Dynamic;
 using Arrays.FactorialFib;
 using Arrays.Graphs;
@@ -50,7 +51,10 @@ namespace Arrays
             //StringsExample();
             
             // Turing task
-            TuringExample();
+            //TuringExample();
+            
+            // Array tasks
+            ArraysExample();
             
             // Recursive Hanoi Tower
             //var towerWorks = new VisualHanoiTower();
@@ -60,6 +64,19 @@ namespace Arrays
             // Console.WriteLine($"{name} {number}");
 
             Console.ReadKey();
+        }
+        
+        public static void ArraysExample()
+        {
+            Console.WriteLine("\nArray Algorithm:");
+
+            var arr1 = new List<int> { 1, 2, 4, 4 };
+            var arr2 = new List<int> { 1, 2, 4, 9 };
+            var arr3 = new List<int> { 1, 3, 8, 5, 10, 3, 2, 4, 15 };
+
+            ArrTasks.IsSumOfTwoElems(arr1, 8);
+            ArrTasks.IsSumOfTwoElems(arr2, 8);
+            ArrTasks.IsSumOfTwoElems(arr3, 10);
         }
         
         public static void TuringExample()
