@@ -77,6 +77,23 @@ namespace Arrays
             ArrTasks.IsSumOfTwoElems(arr1, 8);
             ArrTasks.IsSumOfTwoElems(arr2, 8);
             ArrTasks.IsSumOfTwoElems(arr3, 10);
+            
+            Console.WriteLine("\nMost common:");
+            var arr4 = new List<int> { 1, 2, 4, 4 };
+            var arr5 = new List<int> { 1, 2, 4, 9 };
+            var arr6 = new List<int> { 1, 1, 4, 1, 10, 3, 4, 4, 15 };
+            var res1 =  ArrTasks.MostCommonNumber(arr4);
+            var res2 =  ArrTasks.MostCommonNumber(arr5);
+            var res3 =  ArrTasks.MostCommonNumber(arr6);
+            Console.WriteLine($"Arr4 values:");
+            foreach (var el in res1)
+                Console.Write($"{el} ");
+            Console.WriteLine($"\nArr5 values:");
+            foreach (var el in res2)
+                Console.Write($"{el} ");
+            Console.WriteLine($"\nArr6 values:");
+            foreach (var el in res3)
+                Console.Write($"{el} ");
         }
         
         public static void TuringExample()
