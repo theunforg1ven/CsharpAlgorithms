@@ -94,6 +94,20 @@ namespace Arrays
             Console.WriteLine($"\nArr6 values:");
             foreach (var el in res3)
                 Console.Write($"{el} ");
+            Console.WriteLine();
+            
+            ArrTasks.Zikkurat(4);
+            ArrTasks.Zikkurat(5);
+
+            Console.WriteLine("\nMax Multiply:");
+            Console.WriteLine($"Max mult from arr 1: {ArrTasks.MaxMultiply(arr1)} ");
+            Console.WriteLine($"Max mult from arr 2: {ArrTasks.MaxMultiply(arr2)} ");
+            Console.WriteLine($"Max mult from arr 3: {ArrTasks.MaxMultiply(arr3)} ");
+            
+            ArrTasks.Snake(5);
+            ArrTasks.Snake(6);
+            ArrTasks.Snake(7);
+            ArrTasks.Snake(8);
         }
         
         public static void TuringExample()
