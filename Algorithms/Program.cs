@@ -48,7 +48,7 @@ namespace Arrays
             //RecursionExample();
             
             // Different string tasks
-            //StringsExample();
+            StringsExample();
             
             // Turing task
             //TuringExample();
@@ -65,26 +65,26 @@ namespace Arrays
 
             Console.ReadKey();
         }
-        
+
         public static void ArraysExample()
         {
             Console.WriteLine("\nArray Algorithm:");
 
-            var arr1 = new List<int> { 1, 2, 4, 4 };
-            var arr2 = new List<int> { 1, 2, 4, 9 };
-            var arr3 = new List<int> { 1, 3, 8, 5, 10, 3, 2, 4, 15 };
+            var arr1 = new List<int> {1, 2, 4, 4};
+            var arr2 = new List<int> {1, 2, 4, 9};
+            var arr3 = new List<int> {1, 3, 8, 5, 10, 3, 2, 4, 15};
 
             ArrTasks.IsSumOfTwoElems(arr1, 8);
             ArrTasks.IsSumOfTwoElems(arr2, 8);
             ArrTasks.IsSumOfTwoElems(arr3, 10);
-            
+
             Console.WriteLine("\nMost common:");
-            var arr4 = new List<int> { 1, 2, 4, 4 };
-            var arr5 = new List<int> { 1, 2, 4, 9 };
-            var arr6 = new List<int> { 1, 1, 4, 1, 10, 3, 4, 4, 15 };
-            var res1 =  ArrTasks.MostCommonNumber(arr4);
-            var res2 =  ArrTasks.MostCommonNumber(arr5);
-            var res3 =  ArrTasks.MostCommonNumber(arr6);
+            var arr4 = new List<int> {1, 2, 4, 4};
+            var arr5 = new List<int> {1, 2, 4, 9};
+            var arr6 = new List<int> {1, 1, 4, 1, 10, 3, 4, 4, 15};
+            var res1 = ArrTasks.MostCommonNumber(arr4);
+            var res2 = ArrTasks.MostCommonNumber(arr5);
+            var res3 = ArrTasks.MostCommonNumber(arr6);
             Console.WriteLine($"Arr4 values:");
             foreach (var el in res1)
                 Console.Write($"{el} ");
@@ -95,7 +95,7 @@ namespace Arrays
             foreach (var el in res3)
                 Console.Write($"{el} ");
             Console.WriteLine();
-            
+
             ArrTasks.Zikkurat(4);
             ArrTasks.Zikkurat(5);
 
@@ -103,11 +103,29 @@ namespace Arrays
             Console.WriteLine($"Max mult from arr 1: {ArrTasks.MaxMultiply(arr1)} ");
             Console.WriteLine($"Max mult from arr 2: {ArrTasks.MaxMultiply(arr2)} ");
             Console.WriteLine($"Max mult from arr 3: {ArrTasks.MaxMultiply(arr3)} ");
-            
+
             ArrTasks.Snake(5);
             ArrTasks.Snake(6);
             ArrTasks.Snake(7);
             ArrTasks.Snake(8);
+
+            ArrTasks.AllEven(arr1);
+            ArrTasks.AllEven(arr2);
+            ArrTasks.AllEven(arr3);
+
+            ArrTasks.CountOnes();
+
+            var arrzero1 = new[] {3, 0, 0, 1, 2, 0, 5, 4, 3, 3};
+            var arrzero2 = new[] {3, 0, 0, 1, 2, 0, 5, 0, 3, 0};
+            var arrzero3 = new[] {3, 1, 1, 1, 2, 5, 0, 4, 0, 0};
+            ArrTasks.Zeros(arrzero1);
+            ArrTasks.Zeros(arrzero2);
+            ArrTasks.Zeros(arrzero3);
+            
+            var dup1 = new List<int> {1, 3, 2, 2, 3, 0};
+            ArrTasks.Duplicates(dup1);
+            //ArrTasks.Duplicates(arrzero2);
+            //ArrTasks.Duplicates(arrzero3);
         }
         
         public static void TuringExample()
@@ -190,6 +208,13 @@ namespace Arrays
 
             var rleStr = "AVVVBBBVVXDHJFFFFDDDDDDHAAAAJJJDDSLSSSDDDDK";
             Console.Write($"Result rle of str:{rleStr} = {StrTasks.StringRle(rleStr)}\n");
+
+            var chstr1 = "aaa bbb ccc";
+            var chstr2 = "111,  222 333";
+            var chstr3 = "xxx yyy zzz";
+            Console.Write($"Change order 1: {StrTasks.ChangeWords(chstr1)}\n");
+            Console.Write($"Change order 2: {StrTasks.ChangeWords(chstr2)}\n");
+            Console.Write($"Change order 3: {StrTasks.ChangeWords(chstr3)}\n");
         }
 
         public static void RecursionExample()

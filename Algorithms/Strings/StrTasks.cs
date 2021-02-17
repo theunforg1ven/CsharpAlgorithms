@@ -183,5 +183,13 @@ namespace Arrays.Strings
 
             return sb.ToString();
         }
+        
+        // 12. Change words side in string
+        public static string ChangeWords(string str)
+        {
+            return string.Join(" ", str.Split(' ')
+                .OrderBy(s => s)
+                .Reverse());
+        }
     }
 }

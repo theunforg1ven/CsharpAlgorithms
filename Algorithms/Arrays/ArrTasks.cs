@@ -190,5 +190,87 @@ namespace Arrays.Arrays
                 Console.WriteLine();
             }
         }
+        
+        // 6. All even numbers
+        public static void AllEven(IEnumerable<int> arr)
+        {
+            var evenNumbers = arr.Where(el => el % 2 == 0);
+            
+            Console.WriteLine($"\nAll even: ");
+            foreach (var el in evenNumbers)
+                Console.Write($"{el} ");
+        }
+        
+        // 7. How much 1 in the right site of each 0, find sum of all numbers (12 + 11 + 6 + 3 + 2 + 1 = 35)
+        public static void CountOnes()
+        {
+            int[] arr = { 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1 };
+            var counter = 0;
+            var sum = 0;
+
+            for (var i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 0)
+                    counter++;
+                else
+                    sum += counter;
+            }
+            
+            Console.WriteLine($"\nSum = {sum}");
+            Console.WriteLine();
+        }
+        
+        
+        // 8. Move all zeros to the end
+        public static void Zeros(int[] arr)
+        {
+            var i = 0;
+            var j = arr.Count() - 1;
+            
+            while (i < j)
+            {
+                if (arr[i] == 0 && arr[j] != 0)
+                {
+                    Swap(ref arr[i], ref arr[j]);
+                    i++;
+                    j--;
+                }
+                else if (arr[i] == 0 && arr[j] == 0)
+                    j--;
+                else
+                    i++;
+            }
+
+            Console.WriteLine($"\nAll zeros: ");
+            foreach (var el in arr)
+                Console.Write($"{el} ");
+        }
+        
+        private static void Swap(ref int first, ref int second)
+        {
+            var temp = first; 
+            first = second; 
+            second = temp; 
+        }
+        
+        // 9. Array only with duplicates
+        public static void Duplicates(List<int> arr)
+        {
+            var dupList = new List<int>();
+
+            var sortedList = arr.OrderBy(el => el).ToList();
+
+            for (var i = 0; i < arr.Count - 1; i++)
+            {
+                if (sortedList[i] == sortedList[i + 1] && !dupList.Contains(arr[i]))
+                {
+                    dupList.Add(arr[i]);
+                }
+            }
+
+            Console.WriteLine($"\nDuplicates: ");
+            foreach (var el in dupList)
+                Console.Write($"{el} ");
+        }
     }
 }

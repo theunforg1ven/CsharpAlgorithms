@@ -24,7 +24,7 @@ namespace Arrays.ProgHubTests
                                                     .Distinct()
                                                     .ToList();
 
-            var elem = wordsCount.Where(str => str == word).FirstOrDefault();
+            var elem = wordsCount.FirstOrDefault(str => str == word);
 
             var indexOfElem = wordsCount.IndexOf(elem) + 1; // list starts from index 0 , but we need to take [0] element as [1] first element
 
