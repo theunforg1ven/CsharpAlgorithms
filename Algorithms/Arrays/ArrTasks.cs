@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 
 namespace Arrays.Arrays
 {
@@ -264,13 +265,50 @@ namespace Arrays.Arrays
             {
                 if (sortedList[i] == sortedList[i + 1] && !dupList.Contains(arr[i]))
                 {
-                    dupList.Add(arr[i]);
+                    dupList.Add(sortedList[i]);
                 }
             }
+
+            /*var distArr = arr.Distinct().ToList();
+            var counter = 0;
+            var finalList = new List<int>();
+            for (var i = 0; i < distArr.Count; i++)
+            {
+                for (var j = 0; j < dupList.Count; j++)
+                {
+                    if (distArr[i] == dupList[j])
+                    {
+                        finalList.Add(dupList[j]);
+                        break;
+                    }   
+                }
+            }*/
 
             Console.WriteLine($"\nDuplicates: ");
             foreach (var el in dupList)
                 Console.Write($"{el} ");
+        }
+        
+        // 10. Count zeros in both sides or left and right
+        public static void OneAndZero()
+        {
+            int[,] arr =
+            {
+                { 0, 1, 1, 0, 1, },
+                { 0, 1, 0, 1, 1, },
+                { 1, 1, 0, 1, 0, },
+                { 0, 1, 0, 1, 0, },
+                { 0, 1, 0, 0, 1, },
+            };
+            
+            // int[,] arr =
+            // {
+            //     { 1, 0, 0, },
+            //     { 1, 0, 1, },
+            //     { 0, 0, 1, },
+            // };
+            
+            
         }
     }
 }

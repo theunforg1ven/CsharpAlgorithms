@@ -191,5 +191,30 @@ namespace Arrays.Strings
                 .OrderBy(s => s)
                 .Reverse());
         }
+        
+        // 13. Fibonachi after given number
+        public static void FinonachiAfter(int position, int num)
+        {
+            var strWithNums = new StringBuilder();
+
+            for (var i = 0; i <= num; i++)
+            {
+                strWithNums.Append(FibonachiTwo(i));
+                if(i != num)
+                    strWithNums.Append('-');
+            }
+
+            var fullList = strWithNums.ToString().Split('-').ToList();
+            var result = fullList.GetRange(position, num - position);
+            
+            Console.WriteLine($"For position {position} and number {num} result is: {string.Join(" ", result)}");
+        }
+        
+        private static int FibonachiTwo(int num)
+        {
+            if (num <= 1)
+                return num;
+            return FibonachiTwo(num - 1) + FibonachiTwo(num - 2);
+        }
     }
 }

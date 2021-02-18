@@ -54,7 +54,7 @@ namespace Arrays
             //TuringExample();
             
             // Array tasks
-            ArraysExample();
+            //ArraysExample();
             
             // Recursive Hanoi Tower
             //var towerWorks = new VisualHanoiTower();
@@ -123,9 +123,13 @@ namespace Arrays
             ArrTasks.Zeros(arrzero3);
             
             var dup1 = new List<int> {1, 3, 2, 2, 3, 0};
+            var dup2 = new List<int> {1, 0, 2, 0, 3, 1};
+            var dup3 = new List<int> {1, 3, 1, 2, 3, 0};
             ArrTasks.Duplicates(dup1);
-            //ArrTasks.Duplicates(arrzero2);
-            //ArrTasks.Duplicates(arrzero3);
+            ArrTasks.Duplicates(dup2);
+            ArrTasks.Duplicates(dup3);
+            
+            ArrTasks.OneAndZero();
         }
         
         public static void TuringExample()
@@ -215,6 +219,8 @@ namespace Arrays
             Console.Write($"Change order 1: {StrTasks.ChangeWords(chstr1)}\n");
             Console.Write($"Change order 2: {StrTasks.ChangeWords(chstr2)}\n");
             Console.Write($"Change order 3: {StrTasks.ChangeWords(chstr3)}\n");
+
+            StrTasks.FinonachiAfter(10, 15);
         }
 
         public static void RecursionExample()
