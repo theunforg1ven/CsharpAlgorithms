@@ -216,5 +216,71 @@ namespace Arrays.Strings
                 return num;
             return FibonachiTwo(num - 1) + FibonachiTwo(num - 2);
         }
+        
+        // 14. Longest palindrome substring
+        public static void PalindromeSubstring(string str)
+        {
+            var subsets = new List<string>();
+            for (var i = 0; i < str.Length - 1; i++)
+            {
+                for (var j = i + 1; j <= str.Length; j++)
+                {
+                    if (j - i > 1 && str[j - 1] == str[i])
+                    {
+                        var currentSubset = str.Substring(i, j - i);
+                        if (IsPalindromeGlobal(currentSubset))
+                        {
+                            subsets.Add(currentSubset);
+                        }
+                    }
+                }
+            }
+
+            Console.Write("\nAll palindromes: ");
+            foreach (var pal in subsets)
+            {
+                Console.Write($"{pal} ");
+            }
+        }
+        
+        private static bool IsPalindromeGlobal(string input)
+        {
+            return !input.Where((t, i) => t != input[input.Length - 1 - i]).Any();
+        }
+        
+        // 15. Remove duplicates recursive
+        public static void RemoveAdjDuplicates(string str)
+        {
+            var i = 0;
+            var deletedChar = '#';
+            var newArr = new StringBuilder(str);
+            RemoveAdjDuplicates(newArr, i, deletedChar);
+        }
+
+        private static void RemoveAdjDuplicates(StringBuilder str, int i, char deletedChar)
+        {
+            if (i == str.Length - 1 || i == str.Length)
+            {
+                Console.Write($"\nFinal string is {str}");
+            }
+            else if (str[i] == str[i + 1])
+            {
+                if (i != str.Length && i != str.Length - 1)
+                    deletedChar = str[i];
+                str.Remove(i, 2);
+                RemoveAdjDuplicates(str, i, deletedChar);
+            }
+            else if (str[i] == deletedChar)
+            {
+                str.Remove(i, 1);
+                deletedChar = '#';
+                RemoveAdjDuplicates(str, i, deletedChar);
+            }
+            else
+            {
+                RemoveAdjDuplicates(str, i + 1, deletedChar);
+            }
+
+        }
     }
 }

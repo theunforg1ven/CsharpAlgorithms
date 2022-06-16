@@ -1,13 +1,24 @@
-﻿namespace Arrays.Tree
+﻿using System.Collections.Generic;
+
+namespace Arrays.Tree
 {
-	public class TreeNode
-	{
-		public int Value { get; set; } 
-
-		public TreeNode Left { get; set; }
-
-		public TreeNode Right { get; set; }
-
-		public TreeNode(int value) => Value = value;
-	}
+	public class TreeNode<T> 
+	{ 
+		public T Data { get; set; } 
+		public TreeNode<T> Parent { get; set; } 
+		
+		public List<TreeNode<T>> Children { get; set; } 
+ 
+		public int GetHeight() 
+		{ 
+			var height = 1; 
+			var current = this; 
+			while (current.Parent != null) 
+			{ 
+				height++; 
+				current = current.Parent; 
+			} 
+			return height; 
+		} 
+	} 
 }

@@ -24,5 +24,10 @@ namespace Arrays.Sorting
             array[first] = array[second];
             array[second] = temp;
         }
+        
+        // private static void Swap<T>(T[] array, int first, int second)
+        // {
+        //     (array[first], array[second]) = (array[second], array[first]);
+        // }
     }
 }

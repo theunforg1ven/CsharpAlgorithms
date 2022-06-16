@@ -8,7 +8,7 @@ namespace Arrays.FactorialFib
     public class VisualHanoiTower
     {
         private const int DISCS_COUNT = 10; 
-        private const int DELAY_MS = 500; 
+        private const int DELAY_MS = 1500; 
         
         private static int _columnSize = 30;
 
@@ -33,7 +33,7 @@ namespace Arrays.FactorialFib
             var visualization = InitializeVisualization(algorithm); 
             PrepareColumn(visualization, 1, algorithm.DiscsCount, algorithm.From); 
             PrepareColumn(visualization, 2, algorithm.DiscsCount, algorithm.To); 
-            PrepareColumn(visualization, 3, algorithm.DiscsCount, algorithm.Auxiliary); 
+            PrepareColumn(visualization, 3, algorithm.DiscsCount, algorithm.Temp); 
  
             Console.WriteLine(Center("FROM") + Center("TO") + Center("AUXILIARY")); 
             DrawVisualization(visualization); 

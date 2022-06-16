@@ -48,10 +48,10 @@ namespace Arrays
             //RecursionExample();
             
             // Different string tasks
-            StringsExample();
+           // StringsExample();
             
             // Turing task
-            //TuringExample();
+            // TuringExample();
             
             // Array tasks
             //ArraysExample();
@@ -129,7 +129,26 @@ namespace Arrays
             ArrTasks.Duplicates(dup2);
             ArrTasks.Duplicates(dup3);
             
-            ArrTasks.OneAndZero();
+            var even1 = new List<int> {2, 3, 2, 1, 2, 5};
+            var even2 = new List<int> {1, 4, 2, 3, 3, 1};
+            var even3 = new List<int> {1, 3, 1, 2, 3, 2};
+            ArrTasks.EvenNeighbors(even1);
+            ArrTasks.EvenNeighbors(even2);
+            ArrTasks.EvenNeighbors(even3);
+            
+            var arrsum1 = new[] {1, 2, 3, 7, 5};
+            var arrsum2 = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            var arrsum3 = new[] {3, 0, 1, 1, 2, 5, 0, 4, 0, 0};
+            ArrTasks.SubarrayWithGivenSum(arrsum1, 12);
+            ArrTasks.SubarrayWithGivenSum(arrsum2, 15);
+            ArrTasks.SubarrayWithGivenSum(arrsum3, 10);
+            
+            var arrtrip1 = new List<int> {1, 5, 3, 2};
+            var arrtrip2 = new List<int> {2, 3, 4};
+            var arrtrip3 = new List<int> {3, 1, 2, 5, 4};
+            ArrTasks.CountTheTriplets(arrtrip1);
+            ArrTasks.CountTheTriplets(arrtrip2);
+            ArrTasks.CountTheTriplets(arrtrip3);
         }
         
         public static void TuringExample()
@@ -221,6 +240,11 @@ namespace Arrays
             Console.Write($"Change order 3: {StrTasks.ChangeWords(chstr3)}\n");
 
             StrTasks.FinonachiAfter(10, 15);
+
+            StrTasks.PalindromeSubstring("dabcba");
+            
+            StrTasks.RemoveAdjDuplicates("geeksforgeek");
+            StrTasks.RemoveAdjDuplicates("acaaabbbacdddd");
         }
 
         public static void RecursionExample()
@@ -371,6 +395,9 @@ namespace Arrays
             //SelectionSort.Sort(integerValues1); 
             //InsertionSort.Sort(integerValues2);
             //BubbleSort.Sort(integerValues3);
+            // QuickSort.Sort(integerValues1);
+            //QuickSort.Sort(integerValues2);
+            //QuickSort.Sort(integerValues3);
             QuickSort.Sort(integerValues4);
             
             //Console.WriteLine(String.Join(" | ", integerValues1)); 

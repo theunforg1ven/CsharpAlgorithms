@@ -269,46 +269,73 @@ namespace Arrays.Arrays
                 }
             }
 
-            /*var distArr = arr.Distinct().ToList();
-            var counter = 0;
-            var finalList = new List<int>();
-            for (var i = 0; i < distArr.Count; i++)
-            {
-                for (var j = 0; j < dupList.Count; j++)
-                {
-                    if (distArr[i] == dupList[j])
-                    {
-                        finalList.Add(dupList[j]);
-                        break;
-                    }   
-                }
-            }*/
-
             Console.WriteLine($"\nDuplicates: ");
             foreach (var el in dupList)
                 Console.Write($"{el} ");
         }
         
-        // 10. Count zeros in both sides or left and right
-        public static void OneAndZero()
+        // 10. Even neighbors
+        public static void EvenNeighbors(List<int> arr)
         {
-            int[,] arr =
+            var counter = 0;
+
+            for (var i = 1; i < arr.Count - 1; i++)
             {
-                { 0, 1, 1, 0, 1, },
-                { 0, 1, 0, 1, 1, },
-                { 1, 1, 0, 1, 0, },
-                { 0, 1, 0, 1, 0, },
-                { 0, 1, 0, 0, 1, },
-            };
+                if (arr[i - 1] % 2 == 0 && arr[i + 1] % 2 == 0)
+                    counter++;
+            }
+
+            Console.WriteLine($"\nEven neighbors: {counter}");
+        }
+        
+        // 11. Subarray with given sum
+        public static void SubarrayWithGivenSum(int[] arr, int givenSum)
+        {
+            var currSum = 0;
+
+            for (var i = 0; i < arr.Length; i++)
+            {
+                currSum = arr[i];
+
+                for (var j = i + 1; j <= arr.Length; j++)
+                {
+                    if (currSum == givenSum)
+                    {
+                        Console.WriteLine($"\nSum is between: {i + 1} and {j}");
+                        return;
+                    }
+                    if(currSum > givenSum || j == arr.Length)
+                        break;
+
+                    currSum += arr[j];
+                }
+            }
+
+            Console.WriteLine($"\nNo subarrays found: {-1}");
+        }
+        
+        // 12. Count the triplets 
+        public static void CountTheTriplets(List<int> arr)
+        {
+            var tempArr = new List<int>();
+
+            for (var i = 0; i < arr.Count; i++)
+            {
+                for (var j = 0; j < arr.Count; j++)
+                {
+                    if(arr[i] == arr[j])
+                        continue;
+
+                    var addValue = arr[i] + arr[j];
+
+                    if (!tempArr.Contains(addValue))
+                        tempArr.Add(addValue);
+                }
+            }
+
+            var counter = arr.Count(elem => tempArr.Contains(elem));
             
-            // int[,] arr =
-            // {
-            //     { 1, 0, 0, },
-            //     { 1, 0, 1, },
-            //     { 0, 0, 1, },
-            // };
-            
-            
+            Console.WriteLine($"\nNumber of triplets: {counter}");
         }
     }
 }

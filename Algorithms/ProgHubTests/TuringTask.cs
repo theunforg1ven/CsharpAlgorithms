@@ -59,9 +59,7 @@ namespace Arrays.ProgHubTests
             if (a == b) 
                 return;
 
-            var temp = a;
-            a = b;
-            b = temp;
+            (a, b) = (b, a);
         }
     }
 }
