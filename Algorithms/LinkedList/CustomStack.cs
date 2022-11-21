@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Arrays.LinkedList
 {
-    public class MineStack<T> : IEnumerable<T>
+    public class CustomStack<T> : IEnumerable<T>
     {
         private Node<T> _head; // first/head element
         private int _count; // amount of elements
@@ -29,11 +29,11 @@ namespace Arrays.LinkedList
                 return default;
             }
                 
-            var temp = _head;
+            var result = _head;
             _head = _head.Next;
             _count--;
 
-            return temp.Data;
+            return result.Data;
         }
         
         public T Peek()
@@ -46,12 +46,16 @@ namespace Arrays.LinkedList
             
             return _head.Data;
         }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)this).GetEnumerator();
-        }
         
+        public void Clear()
+        {
+           _head = null;
+           _count = 0;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() 
+            => ((IEnumerable)this).GetEnumerator();
+
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             var current = _head;

@@ -55,8 +55,9 @@
     <Compile Include="Graphs\GraphEdge.cs" />
     <Compile Include="Graphs\GraphVertex.cs" />
     <Compile Include="Graphs\GraphVertexInfo.cs" />
-    <Compile Include="LinkedList\LinkedList.cs" />
-    <Compile Include="LinkedList\MineStack.cs" />
+    <Compile Include="LinkedList\CustomLinkedList.cs" />
+    <Compile Include="LinkedList\CustomQueue.cs" />
+    <Compile Include="LinkedList\CustomStack.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="ProgHubTests\TuringTask.cs" />
     <Compile Include="Program.cs" />

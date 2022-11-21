@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Arrays.Strings
 {
@@ -37,9 +33,7 @@ namespace Arrays.Strings
             if (a == b) 
                 return;
 
-            var temp = a;
-            a = b;
-            b = temp;
+            (a, b) = (b, a);
         }
 
     }

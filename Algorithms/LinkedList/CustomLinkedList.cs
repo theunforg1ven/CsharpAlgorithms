@@ -4,13 +4,30 @@ using System.Collections.Generic;
 
 namespace Arrays.LinkedList
 {
-    public class LinkedList<T> : IEnumerable<T> where T : IComparable
+    public class CustomLinkedList<T> : IEnumerable<T> where T : IComparable
 	{
 		private Node<T> head; // first/head element
 		private Node<T> tail; // last/tail element
 		private int _count;  // amount of elements in the list
+		
+		public void AddFirst(T data)
+		{
+			var node = new Node<T>(data);
 
-		public void Add(T data)
+			// set current head to the next element
+			node.Next = head;
+
+			// make new node a head
+			head = node;
+
+			// if list is empty node = head = tail
+			if (_count == 0)
+				tail = head;
+
+			_count++;
+		}
+
+		public void AddLast(T data)
 		{
 			var node = new Node<T>(data);
 
@@ -25,9 +42,73 @@ namespace Arrays.LinkedList
 			_count++;
 		}
 
+		public bool AddBefore(T dataBefore, T dataAdd)
+		{
+			Node<T> previous = null;
+			var current = head;
+			
+			var node = new Node<T>(dataAdd);
+			
+			while (current != null)
+			{
+				if (current.Data.Equals(dataBefore))
+				{
+					if (previous != null)
+					{
+						previous.Next = node;
+						node.Next = current;
+					}
+					else
+					{
+						node.Next = head;
+						head = node;
+					}
+					
+					_count++;
+					return true;
+				}
+
+				previous = current;
+				current = current.Next;
+			}
+
+			return false;
+		}
+		
+		public bool AddAfter(T dataAfter, T dataAdd)
+		{
+			var current = head;
+			
+			var node = new Node<T>(dataAdd);
+			
+			while (current != null)
+			{
+				if (current.Data.Equals(dataAfter))
+				{
+					if (current == tail)
+					{
+						tail.Next = node;
+						tail = node;
+					}
+					else
+					{
+						node.Next = current.Next;
+						current.Next = node;
+					}
+
+					_count++;
+					return true;
+				}
+
+				current = current.Next;
+			}
+
+			return false;
+		}
+
 		public bool Remove(T data)
 		{
-			Node<T> current = head;
+			var current = head;
 			Node<T> previous = null;
 
 			while (current != null)
@@ -67,11 +148,51 @@ namespace Arrays.LinkedList
 			return false;
 		}
 
+		public bool RemoveFirst()
+		{
+			if (head == null)
+				return false;
+			
+			head = head.Next;
+
+			if (head == null)
+				tail = null;
+			
+			_count--;
+			return true;
+		}
+		
+		public bool RemoveLast()
+		{
+			var current = head;
+			Node<T> previous = null;
+
+			while (current != null)
+			{
+				if (current.Next == null && previous != null)
+				{
+					previous.Next = null;
+					tail = previous;
+
+					if (tail == null)
+						head = null;
+
+					_count--;
+					return true;
+				}
+
+				previous = current;
+				current = current.Next;
+			}
+
+			return false;
+		}
+
 		public void Reverse()
 		{
 			// starts from head
 			Node<T> prevNode = null;
-			Node<T> current = head;
+			var current = head;
 
 			// loop changing pointers to the other side
 			while (current != null)
@@ -79,6 +200,7 @@ namespace Arrays.LinkedList
 				var next = current.Next;
 				current.Next = prevNode;
 				prevNode = current;
+				if (current?.Next == null) tail = prevNode;
 				current = next;
 			}
 			
@@ -90,9 +212,9 @@ namespace Arrays.LinkedList
 
 		public bool IsEmpty => _count == 0;
 
-		public Node<T> First => head;
+		public Node<T> First => head ?? new Node<T>(default);
 		
-		public Node<T> Last => tail;
+		public Node<T> Last => tail ?? new Node<T>(default);
 
 		public void Clear()
 		{
@@ -103,7 +225,7 @@ namespace Arrays.LinkedList
 
 		public bool Contains(T data)
 		{
-			Node<T> current = head;
+			var current = head;
 
 			// check all elements for the element needed
 			while (current != null)
@@ -119,8 +241,8 @@ namespace Arrays.LinkedList
 
 		public T Min() 
 		{
-			Node<T> current = head;
-			T min = current.Data;
+			var current = head;
+			var min = current.Data;
 
 			while (current != null)
 			{
@@ -135,8 +257,8 @@ namespace Arrays.LinkedList
 
 		public T Max()
 		{
-			Node<T> current = head;
-			T max = current.Data;
+			var current = head;
+			var max = current.Data;
 
 			while (current != null)
 			{
@@ -149,33 +271,17 @@ namespace Arrays.LinkedList
 			return max;
 		}
 
-		public void AppendFirst(T data)
-		{
-			Node<T> node = new Node<T>(data);
-
-			// set current head to the next element
-			node.Next = head;
-
-			// make new node a head
-			head = node;
-
-			// if list is empty node = head = tail
-			if (_count == 0)
-				tail = head;
-
-			_count++;
-		}
-		
 		/// <summary>
 		/// 'IEnumerable' realization for using 'foreach' loop
 		/// </summary>
 		///
 
-		IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)this).GetEnumerator();
+		IEnumerator IEnumerable.GetEnumerator() 
+			=> ((IEnumerable)this).GetEnumerator();
 
 		IEnumerator<T> IEnumerable<T>.GetEnumerator()
 		{
-			Node<T> current = head;
+			var current = head;
 
 			while (current != null)
 			{

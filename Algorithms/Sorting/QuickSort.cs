@@ -15,7 +15,7 @@ namespace Arrays.Sorting
             // if condition is true
             if (lower < upper) 
             { 
-                // find element to divide array into 2 parts
+                // find element index to divide array into 2 parts
                 int p = Partition(array, lower, upper);
                 
                 // lower part
@@ -34,7 +34,7 @@ namespace Arrays.Sorting
             // loop to place lower than pivot element before 'pivot' and greater elements after 'pivot'.
             // Do these steps:
             // 1) find 'array[lower] > pivot'
-            // 2) 'array[upper] < pivot'
+            // 2) find 'array[upper] < pivot'
             // 3) Swap them, do it while 'lower < upper'
             do 
             { 

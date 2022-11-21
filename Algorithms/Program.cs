@@ -6,6 +6,7 @@ using Arrays.Arrays;
 using Arrays.Dynamic;
 using Arrays.FactorialFib;
 using Arrays.Graphs;
+using Arrays.LinkedList;
 using Arrays.ProgHubTests;
 using Arrays.Search;
 using Arrays.Sorting;
@@ -408,29 +409,35 @@ namespace Arrays
 
         public static void LinkedListExample()
         {
-            var linkedint = new LinkedList.LinkedList<int> { 54, 32, 21, 40, 92 };
+            var linkedint = new CustomLinkedList<int> ();
+
+            linkedint.AddLast(1);
+            linkedint.AddLast(2);
+            linkedint.AddLast(3);
+            linkedint.AddLast(4);
+
+            //linkedint.AddBefore(1, 10);
+            //linkedint.AddBefore(4, 10);
+            //linkedint.RemoveFirst();
+            //linkedint.RemoveLast();
+            
             foreach (var item in linkedint)
                 Console.Write($"{item} ");
-            Console.WriteLine(Environment.NewLine);
-
-            Console.WriteLine($"Is list empty?: {linkedint.IsEmpty}");
-            Console.WriteLine($"Count: {linkedint.Count}");
-            Console.WriteLine($"Min element: {linkedint.Min()}");
-            Console.WriteLine($"Max element: {linkedint.Max()}");
-
-            linkedint.Add(57);
-            linkedint.Remove(54);
-            linkedint.AppendFirst(19);
-
             Console.WriteLine();
+            
+            //Console.WriteLine($"Is list empty?: {linkedint.IsEmpty}");
+            //Console.WriteLine($"Count: {linkedint.Count}");
+            //Console.WriteLine($"Min element: {linkedint.Min()}");
+            //Console.WriteLine($"Max element: {linkedint.Max()}");
+
+            //linkedint.Reverse();
+
             foreach (var item in linkedint)
                 Console.Write($"{item} ");
-
-            linkedint.Reverse();
-
-            Console.WriteLine(Environment.NewLine);
-            foreach (var item in linkedint)
-                Console.Write($"{item} ");
+            Console.WriteLine();
+            
+            Console.WriteLine(linkedint.First.Data);
+            Console.WriteLine(linkedint.Last.Data);
         }
 
         public static void FibonachiFactorialExample()
